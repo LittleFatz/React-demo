@@ -1,0 +1,10 @@
+# Helm 会忽略这里列出的文件
+
+# 示例：忽略测试文件
+*.test.yaml
+
+# 示例：忽略备份文件
+*.bak
+
+# 示例：忽略特定文件
+# templates/configmap.yaml

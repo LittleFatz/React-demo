@@ -1,0 +1,48 @@
+# 依赖
+node_modules
+npm-debug.log*
+
+# 构建输出
+dist
+build
+
+# 环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE 配置
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# 版本控制
+.git
+.gitignore
+.gitattributes
+
+# 测试
+coverage
+.nyc_output
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 文档和其他不必要的文件
+README.md
+*.md
+.claude
+*.pdf
+*.png
+*.py
+*.skill
+research-report-generator
+
+# 日志
+logs
+*.log

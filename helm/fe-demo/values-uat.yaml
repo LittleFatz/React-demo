@@ -1,0 +1,13 @@
+# UAT 环境特定配置
+# 这些值会覆盖 values.yaml 中的默认值
+
+environment: uat
+
+# UAT 环境需要 2 个副本（负载均衡）
+replicaCount: 4
+
+# Ingress 配置
+ingress:
+  enabled: true
+  className: nginx
+  host: uat.localhost

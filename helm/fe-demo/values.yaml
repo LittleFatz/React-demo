@@ -1,0 +1,45 @@
+# 基础配置（所有环境共享）
+
+# 环境名称（会被环境特定的 values 覆盖）
+environment: default
+
+# 镜像配置
+image:
+  repository: fe-demo
+  tag: latest
+  pullPolicy: IfNotPresent
+
+# 副本数（会被环境特定的 values 覆盖）
+replicaCount: 1
+
+# Service 配置
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+# Ingress 配置
+ingress:
+  enabled: true
+  className: nginx
+  host: localhost  # 会被环境特定的 values 覆盖
+
+# 资源限制（可选）
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+# 标签
+labels:
+  app: fe-demo
+
+# ConfigMap 配置（可选）
+configmap:
+  enabled: false  # 默认不启用
+  data: {}
+    # API_URL: "https://api.example.com"
+    # DEBUG: "false"

@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fe-demo-deployment
+  labels:
+    app: fe-demo
+spec:
+  replicas: 3  # 可以根据需要调整副本数
+  selector:
+    matchLabels:
+      app: fe-demo
+  template:
+    metadata:
+      labels:
+        app: fe-demo
+    spec:
+      containers:
+      - name: fe-demo
+        image: fe-demo:latest  # 使用本地镜像
+        imagePullPolicy: IfNotPresent  # 重要：使用本地镜像
+        ports:
+        - containerPort: 80
+          name: http
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+      # 如果使用私有镜像仓库,需要添加 imagePullSecrets
+      # imagePullSecrets:
+      # - name: regcred

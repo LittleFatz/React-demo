@@ -1,0 +1,10 @@
+# 测试配置：禁用 Ingress
+
+environment: test
+replicaCount: 1
+
+# 禁用 Ingress
+ingress:
+  enabled: false  # ← 设置为 false
+  className: nginx
+  host: test.localhost

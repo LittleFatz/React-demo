@@ -1,0 +1,13 @@
+# DEV 环境特定配置
+# 这些值会覆盖 values.yaml 中的默认值
+
+environment: dev
+
+# DEV 环境只需要 1 个副本
+replicaCount: 1
+
+# Ingress 配置
+ingress:
+  enabled: true
+  className: nginx
+  host: dev.localhost
